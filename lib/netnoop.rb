@@ -5,7 +5,9 @@ rescue LoadError
   require 'fakeweb'
 end
 
+require 'uri'
 require 'netnoop/hooks'
+require 'netnoop/request'
 require 'netnoop/bucket'
 
 module NetNoop

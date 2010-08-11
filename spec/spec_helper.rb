@@ -4,7 +4,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'netnoop'
 require 'spec'
 require 'spec/autorun'
-require 'uri'
 
 def example_uri
   "http://www.example.com/"

@@ -7,13 +7,19 @@ describe "NetNoop" do
   
   context "upon a GET request" do
     it "stores the request in the +requests+ array" do
-      req = perform_net_http_get(example_uri)
-      NetNoop.requests.first.should == req
+      perform_net_http_get(example_uri)
+      
+      req = NetNoop.requests.first
+      req.uri.should == example_uri
+      req.method.should == :get
     end
 
     it "stores the request in the +request_map+ hash" do
-      req = perform_net_http_get(example_uri)
-      NetNoop.request_map[example_uri].first.should == req
+      perform_net_http_get(example_uri)
+      
+      req = NetNoop.request_map[example_uri].first
+      req.uri.should == example_uri
+      req.method.should == :get
     end
   end
   
@@ -21,7 +27,7 @@ describe "NetNoop" do
     it "stores the request in the +requests+ array and the body is accessible" do
       body = "I am the request body"
       perform_net_http_post(example_uri, body)
-      NetNoop.requests.first.body == body
+      NetNoop.requests.first.body.should == body
     end
   end
   
@@ -32,7 +38,6 @@ describe "NetNoop" do
     res = Net::HTTP.start(url.host, url.port) {|http|
       http.request(req)
     }
-    req
   end
 
   def perform_net_http_post(uri, body)
@@ -41,6 +46,5 @@ describe "NetNoop" do
     res = Net::HTTP.start(url.host, url.port) {|http|
       http.request(req, body)
     }
-    req
   end
 end
