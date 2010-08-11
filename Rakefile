@@ -5,13 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "netnoop"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Collects and stores your outgoing HTTP requests for later inspection}
+    gem.description = %Q{Collects and stores your outgoing HTTP requests in NetNoop.requests for later inspection, usually in your test assertions or matchers.\n\nCan be used in conjunction with FakeWeb to disable outbound HTTP requests while also making the contents of those requests visible.}
     gem.email = "michael@webadvocate.com"
     gem.homepage = "http://github.com/moklett/netnoop"
     gem.authors = ["Michael Klett"]
+    gem.add_dependency "fakeweb"
     gem.add_development_dependency "rspec", ">= 1.2.9"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
