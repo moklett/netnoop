@@ -30,6 +30,8 @@ Can be used in conjunction with FakeWeb to disable outbound HTTP requests while 
      "lib/netnoop/bucket.rb",
      "lib/netnoop/hooks.rb",
      "lib/netnoop/request.rb",
+     "lib/netnoop/response.rb",
+     "netnoop.gemspec",
      "spec/netnoop_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
@@ -52,13 +54,16 @@ Can be used in conjunction with FakeWeb to disable outbound HTTP requests while 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<fakeweb>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
       s.add_dependency(%q<fakeweb>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
     s.add_dependency(%q<fakeweb>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
 
