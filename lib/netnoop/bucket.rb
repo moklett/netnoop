@@ -11,9 +11,8 @@ module NetNoop
       empty_bucket
     end
     
-    def add_request(uri, method, body = nil)
-      req = NetNoop::Request.new(uri, method, body)
-      self.request_map[uri] = self.request_map[uri] + [req]
+    def add_request(req)
+      self.request_map[req.uri] = self.request_map[req.uri] + [req]
       self.requests << req
     end
     

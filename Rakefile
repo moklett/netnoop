@@ -12,6 +12,7 @@ begin
     gem.authors = ["Michael Klett"]
     gem.add_dependency "fakeweb"
     gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_development_dependency "jeweler"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

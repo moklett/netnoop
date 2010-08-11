@@ -1,10 +1,17 @@
 module Net
   class HTTP
     def request_with_netnoop(request, body = nil, &block)
-      uri, method = netnoop_parse_request_details(request)
-      
-      NetNoop::Bucket.instance.add_request(uri, method, body)
-      request_without_netnoop(request, body, &block)
+      response = request_without_netnoop(request, body, &block)
+
+      begin
+        uri, method = netnoop_parse_request_details(request)
+        NetNoop::Bucket.instance.add_request(
+          NetNoop::Request.new(uri, method, body, response)
+        )
+      rescue
+      end
+
+      response
     end
     alias_method :request_without_netnoop, :request
     alias_method :request, :request_with_netnoop

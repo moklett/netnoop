@@ -8,6 +8,7 @@ end
 require 'uri'
 require 'netnoop/hooks'
 require 'netnoop/request'
+require 'netnoop/response'
 require 'netnoop/bucket'
 
 module NetNoop
